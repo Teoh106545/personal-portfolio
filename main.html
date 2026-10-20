@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Personal portfolio showcasing my skills, education and projects.">
+
+    <title>My Portfolio | Personal Resume</title>
+
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Load JavaScript after the HTML is parsed -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ================= NAVIGATION ================= -->
+    <header class="header">
+        <nav class="navbar container" aria-label="Main navigation">
+
+            <a href="#home" class="logo">MyPortfolio<span>.</span></a>
+
+            <button class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="nav-links">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About Me</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <button class="theme-toggle"
+                    id="theme-toggle"
+                    aria-label="Switch to light theme">
+                ☀
+            </button>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ================= HOME ================= -->
+        <section id="home" class="hero section">
+            <div class="container hero-content">
+
+                <div class="hero-text">
+                    <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
+
+                    <h1>Hello, I'm <span>[Your Name]</span></h1>
+
+                    <h2>[Your Professional Title]</h2>
+
+                    <p>
+                        I am a year 3 student studying
+                        Multimedia Computing. I am interested in
+                        [your interests and career goals].
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            View My Projects
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <!-- Replace with your own image -->
+                    <img src="assets/profile.jpg"
+                         alt="Portrait of [Your Name]"
+                         width="350"
+                         height="350">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= ABOUT ME ================= -->
+        <section id="about" class="section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">GET TO KNOW ME</p>
+                    <h2>About Me</h2>
+                    <p>A little introduction about my background.</p>
+                </div>
+
+                <div class="about-grid">
+
+                    <div class="about-text">
+                        <h3>Who Am I?</h3>
+
+                        <p>
+                            [Write your personal introduction here.
+                            Explain your background, interests,
+                            strengths and future career goals.]
+                        </p>
+
+                        <p>
+                            [Describe what motivates you and
+                            what you hope to achieve.]
+                        </p>
+
+                        <a href="assets/resume.pdf"
+                           class="btn btn-primary"
+                           download>
+                            Download My Resume
+                        </a>
+                    </div>
+
+                    <div class="about-details">
+                        <h3>Education</h3>
+
+                        <div class="detail-item">
+                            <h4>Bachelor’s Degree In Multimedia Computing with Honours</h4>
+                            <p>University Malaysia Sarawak</p>
+                            <p>4 Years</p>
+                        </div>
+
+                        <h3>Skills</h3>
+
+                        <div class="skill-list">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>Python</span>
+                            <span>C++</span>
+                        </div>
+
+                        <h3>Interests</h3>
+                        <ol>
+                            <li>Learning new programming technologies </li>
+                            <li>Technology trends and innovation</li>
+                        </0l>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROJECTS ================= -->
+        <section id="projects" class="section section-alt">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">MY WORK</p>
+                    <h2>My Projects</h2>
+                    <p>
+                        A selection of projects that demonstrate
+                        my skills and learning progress.
+                    </p>
+                </div>
+
+                <!-- JavaScript project filters -->
+                <div class="project-filters"
+                     role="group"
+                     aria-label="Filter projects">
+
+                    <button class="filter-btn active"
+                            data-filter="all"
+                            aria-pressed="true">All</button>
+
+                    <button class="filter-btn"
+                            data-filter="web"
+                            aria-pressed="false">Web</button>
+
+                    <button class="filter-btn"
+                            data-filter="programming"
+                            aria-pressed="false">Programming</button>
+
+                    <button class="filter-btn"
+                            data-filter="design"
+                            aria-pressed="false">Design</button>
+                </div>
+
+                <div class="project-grid">
+
+                    <!-- Project 1 -->
+                    <article class="project-card reveal"
+                             data-category="web">
+                        <div class="project-number">PROJECT 01</div>
+                        <h3>[Project Title 1]</h3>
+                        <p>
+                            [Briefly explain the purpose of this project,
+                            the problem it solves and your contribution.]
+                        </p>
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                        </div>
+                        <a href="[Project URL]"
+                           class="project-link"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            View Project ↗
+                        </a>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card reveal"
+                             data-category="programming">
+                        <div class="project-number">PROJECT 02</div>
+                        <h3>[Project Title 2]</h3>
+                        <p>
+                            [Describe your programming project
+                            and the main features you developed.]
+                        </p>
+                        <div class="project-tags">
+                            <span>Java</span>
+                            <span>OOP</span>
+                        </div>
+                        <a href="[Project URL]"
+                           class="project-link"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            View Project ↗
+                        </a>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card reveal"
+                             data-category="design">
+                        <div class="project-number">PROJECT 03</div>
+                        <h3>[Project Title 3]</h3>
+                        <p>
+                            [Describe your UI/UX, multimedia
+                            or visual design project.]
+                        </p>
+                        <div class="project-tags">
+                            <span>UI/UX</span>
+                            <span>[Tool]</span>
+                        </div>
+                        <a href="[Project URL]"
+                           class="project-link"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            View Project ↗
+                        </a>
+                    </article>
+
+                    <!-- Project 4 -->
+                    <article class="project-card reveal"
+                             data-category="programming">
+                        <div class="project-number">PROJECT 04</div>
+                        <h3>[Project Title 4]</h3>
+                        <p>
+                            [Explain what you built, which technologies
+                            you used and what you learned.]
+                        </p>
+                        <div class="project-tags">
+                            <span>[Language]</span>
+                            <span>[Technology]</span>
+                        </div>
+                        <a href="[Project URL]"
+                           class="project-link"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            View Project ↗
+                        </a>
+                    </article>
+
+                    <!-- Project 5 -->
+                    <article class="project-card reveal"
+                             data-category="web">
+                        <div class="project-number">PROJECT 05</div>
+                        <h3>[Project Title 5]</h3>
+                        <p>
+                            [Describe another assignment, personal
+                            project or practical experience.]
+                        </p>
+                        <div class="project-tags">
+                            <span>[Technology]</span>
+                            <span>[Skill]</span>
+                        </div>
+                        <a href="[Project URL]"
+                           class="project-link"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            View Project ↗
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT ================= -->
+        <section id="contact" class="section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">GET IN TOUCH</p>
+                    <h2>Contact Me</h2>
+                    <p>
+                        Feel free to contact me about opportunities,
+                        collaborations or questions.
+                    </p>
+                </div>
+
+                <div class="contact-content">
+
+                    <div class="contact-info">
+                        <h3>Let's Connect</h3>
+                        <p>
+                            I am happy to connect with people
+                            interested in technology and creativity.
+                        </p>
+
+                        <!-- Replace with your own email -->
+                        <p>
+                            Email:
+                            <a href="mailto:106545@siswa.unimas.my">
+                                106545@siswa.unimas.my
+                            </a>
+                        </p>
+
+                        <p>
+                            GitHub:
+                            <a href="[Your GitHub URL]"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                My GitHub Profile
+                            </a>
+                        </p>
+                    </div>
+
+                    <!-- Front-end form: opens the visitor's email app -->
+                    <form id="contact-form" class="contact-form">
+
+                        <label for="visitor-name">Your Name</label>
+                        <input type="text"
+                               id="visitor-name"
+                               name="name"
+                               required
+                               maxlength="100"
+                               autocomplete="name">
+
+                        <label for="visitor-email">Your Email</label>
+                        <input type="email"
+                               id="visitor-email"
+                               name="email"
+                               required
+                               maxlength="254"
+                               autocomplete="email">
+
+                        <label for="visitor-message">Message</label>
+                        <textarea id="visitor-message"
+                                  name="message"
+                                  rows="5"
+                                  required
+                                  maxlength="3000"></textarea>
+
+                        <button type="submit" class="btn btn-primary">
+                            Send Message
+                        </button>
+
+                        <p id="form-status"
+                           class="form-status"
+                           role="status"
+                           aria-live="polite"></p>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container">
+            <p>
+                &copy; <span id="current-year"></span>
+                [Your Name]. All rights reserved.
+            </p>
+            <a href="#home">Back to Top ↑</a>
+        </div>
+    </footer>
+
+    <!-- Back-to-top button -->
+    <button id="back-to-top"
+            class="back-to-top"
+            aria-label="Back to top">
+        ↑
+    </button>
+
+</body>
+</html>
