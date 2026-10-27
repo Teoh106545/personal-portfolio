@@ -687,25 +687,31 @@ textarea:focus-visible {
 
 /* ================= CONTACT SPACING ================= */
 
-/* Reduce the gap below the Contact heading and description */
+/* Space between the Contact Me heading and the content below */
 #contact .section-heading {
-    margin-bottom: 25px;
+    margin-bottom: 35px;
 }
 
-#contact .section-heading h2 {
+/* Heading inside the contact information column */
+#contact .contact-info h3 {
     margin-bottom: 12px;
 }
 
-#contact .section-heading > p:last-child {
-    margin-bottom: 0;
+/* Description below Let's Connect */
+#contact .contact-info h3 + p {
+    margin-bottom: 35px;
 }
 
-/* Keep the contact details grouped neatly */
-#contact .contact-info {
-    margin-top: 0;
-}
-
+/* Keep Email and LinkedIn close together */
 #contact .contact-info p {
-    margin: 6px 0;
     line-height: 1.5;
+}
+
+/* Override the general paragraph spacing for contact details */
+#contact .contact-info p:has(+ p) {
+    margin-bottom: 6px;
+}
+
+#contact .contact-info p:last-child {
+    margin-bottom: 0;
 }
