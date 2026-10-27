@@ -275,13 +275,31 @@ projectSearchInput.addEventListener("input", filterProjects);
 const copyEmailButton = document.getElementById("copy-email");
 const copyEmailStatus = document.getElementById("copy-email-status");
 
+let copyMessageTimeout;
+
 copyEmailButton.addEventListener("click", async () => {
     try {
         await navigator.clipboard.writeText(portfolioEmail);
+
         copyEmailStatus.textContent = "Email address copied.";
+
+        // Reset the timer if the button is clicked again
+        clearTimeout(copyMessageTimeout);
+
+        // Hide the message after 3 seconds
+        copyMessageTimeout = setTimeout(() => {
+            copyEmailStatus.textContent = "";
+        }, 3000);
+
     } catch (error) {
         copyEmailStatus.textContent =
-            "Copying is unavailable. Please select the email address manually.";
+            "Copy failed. Please copy the email manually.";
+
+        clearTimeout(copyMessageTimeout);
+
+        copyMessageTimeout = setTimeout(() => {
+            copyEmailStatus.textContent = "";
+        }, 3000);
     }
 });
 
