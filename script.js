@@ -73,7 +73,6 @@ try {
 
 updateThemeButton();
 
-
 // ================= 3. PROJECT FILTERING =================
 
 const filterButtons = document.querySelectorAll(".filter-btn");
@@ -81,27 +80,16 @@ const projectCards = document.querySelectorAll(".project-card");
 
 filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        const selectedCategory = button.dataset.filter;
-
-        // Update the selected filter and its accessibility state.
         filterButtons.forEach((item) => {
-            const isSelected = item === button;
+            const selected = item === button;
 
-            item.classList.toggle("active", isSelected);
-            item.setAttribute("aria-pressed", String(isSelected));
+            item.classList.toggle("active", selected);
+            item.setAttribute("aria-pressed", String(selected));
         });
 
-        // Display only projects matching the selected category.
-        projectCards.forEach((card) => {
-            const matches =
-                selectedCategory === "all" ||
-                card.dataset.category === selectedCategory;
-
-            card.hidden = !matches;
-        });
+        filterProjects();
     });
-});
-
+});;
 
 // ================= 4. SCROLL REVEAL ANIMATION =================
 
@@ -231,3 +219,58 @@ contactForm.addEventListener("submit", (event) => {
 
 document.getElementById("current-year").textContent =
     new Date().getFullYear();
+
+
+/* ================= 9. LIVE PROJECT SEARCH ================= */
+
+const projectSearchInput =
+    document.getElementById("project-search-input");
+
+const projectSearchStatus =
+    document.getElementById("project-search-status");
+
+function filterProjects() {
+    // Read the current category selected by the visitor.
+    const activeFilter = document.querySelector(
+        ".filter-btn.active"
+    );
+
+    const selectedCategory = activeFilter
+        ? activeFilter.dataset.filter
+        : "all";
+
+    const searchTerm = projectSearchInput.value
+        .trim()
+        .toLowerCase();
+
+    let visibleCount = 0;
+
+    projectCards.forEach((card) => {
+        const matchesCategory =
+            selectedCategory === "all" ||
+            card.dataset.category === selectedCategory;
+
+        // Search the project title, description and technology tags.
+        const matchesSearch = card.textContent
+            .toLowerCase()
+            .includes(searchTerm);
+
+        const isVisible = matchesCategory && matchesSearch;
+
+        card.hidden = !isVisible;
+
+        if (isVisible) {
+            visibleCount++;
+        }
+    });
+
+    projectSearchStatus.textContent =
+        `${visibleCount} project${visibleCount === 1 ? "" : "s"} found.`;
+}
+
+projectSearchInput.addEventListener("input", filterProjects);
+
+// Reapply the search whenever a category filter is clicked.
+filterButtons.forEach((button) => {
+    button.addEventListener("click", filterProjects);
+});
