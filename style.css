@@ -290,7 +290,8 @@ textarea:focus-visible {
 .about-details p,
 .contact-info p {
     color: var(--muted);
-    margin-bottom: 18px;
+    margin: 6px 0;
+    line-height: 1.5;
 }
 
 .about-text .btn {
@@ -518,11 +519,6 @@ textarea:focus-visible {
     margin-top: 12px;
 }
 
-.contact-info p {
-    margin: 6px 0;
-    line-height: 1.5;
-}
-
 /* ================= 8. FOOTER ================= */
 
 .footer {
@@ -697,9 +693,16 @@ textarea:focus-visible {
     margin-bottom: 12px;
 }
 
-/* Description below Let's Connect */
+/* Space below the description */
 #contact .contact-info h3 + p {
     margin-bottom: 35px;
+}
+
+/* Keep Email and LinkedIn close together */
+#contact .contact-info h3 + p + p,
+#contact .contact-info h3 + p + p + p {
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
 /* Keep Email and LinkedIn close together */
