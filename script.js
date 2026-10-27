@@ -270,6 +270,21 @@ function filterProjects() {
 
 projectSearchInput.addEventListener("input", filterProjects);
 
+/* ================= 10. COPY EMAIL ADDRESS ================= */
+
+const copyEmailButton = document.getElementById("copy-email");
+const copyEmailStatus = document.getElementById("copy-email-status");
+
+copyEmailButton.addEventListener("click", async () => {
+    try {
+        await navigator.clipboard.writeText(portfolioEmail);
+        copyEmailStatus.textContent = "Email address copied.";
+    } catch (error) {
+        copyEmailStatus.textContent =
+            "Copying is unavailable. Please select the email address manually.";
+    }
+});
+
 // Reapply the search whenever a category filter is clicked.
 filterButtons.forEach((button) => {
     button.addEventListener("click", filterProjects);
