@@ -684,3 +684,12 @@ textarea:focus-visible {
         transform: none;
     }
 }
+
+#contact h2 {
+    margin-bottom: 8px;
+}
+
+#contact h2 + p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
