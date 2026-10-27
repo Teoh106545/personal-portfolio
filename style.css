@@ -513,6 +513,16 @@ textarea:focus-visible {
     color: var(--accent);
 }
 
+/* Reduce spacing in the contact section */
+.contact-info {
+    margin-top: 12px;
+}
+
+.contact-info p {
+    margin: 6px 0;
+    line-height: 1.5;
+}
+
 /* ================= 8. FOOTER ================= */
 
 .footer {
