@@ -505,6 +505,14 @@ textarea:focus-visible {
     outline-offset: 3px;
 }
 
+/* Message will appear beside the copy email button */
+#copy-email-status {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 0.8rem;
+    color: var(--accent);
+}
+
 /* ================= 8. FOOTER ================= */
 
 .footer {
