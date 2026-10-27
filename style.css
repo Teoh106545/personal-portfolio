@@ -480,6 +480,31 @@ textarea:focus-visible {
     overflow-wrap: anywhere;
 }
 
+/* Small Copy Email button */
+.copy-email-btn {
+    display: inline-block;
+    padding: 4px 10px;
+    margin-left: 6px;
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    background: transparent;
+    color: var(--accent);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.copy-email-btn:hover {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.copy-email-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
 /* ================= 8. FOOTER ================= */
 
 .footer {
