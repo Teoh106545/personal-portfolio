@@ -685,26 +685,24 @@ textarea:focus-visible {
     }
 }
 
-#contact h2 {
-    margin-bottom: 8px;
+#contact .section-heading {
+    margin-bottom: 25px;
 }
 
-#contact h2 + p {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-/* Contact section spacing */
-#contact h2 {
+#contact .section-heading h2 {
     margin-bottom: 12px;
 }
 
-#contact h2 + p {
-    margin-bottom: 35px;
+#contact .section-heading > p:last-child {
+    margin-bottom: 0;
 }
 
-/* Keep Email and LinkedIn close together */
-.contact-info p {
+/* Keep the contact details grouped neatly */
+#contact .contact-info {
+    margin-top: 0;
+}
+
+#contact .contact-info p {
     margin: 6px 0;
     line-height: 1.5;
 }
