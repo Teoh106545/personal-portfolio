@@ -705,3 +705,64 @@ textarea:focus-visible {
     margin-top: 6px;
     margin-bottom: 6px;
 }
+
+/* ================= PROJECT SCREENSHOTS ================= */
+
+.project-card {
+    overflow: hidden;
+}
+
+.project-image {
+    display: block;
+    width: calc(100% + 52px);
+    max-width: none;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+    margin: -26px -26px 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Project Details button */
+.project-details-btn {
+    margin-top: auto;
+    margin-bottom: 8px;
+    font: inherit;
+}
+
+/* Expanded project information */
+.project-details {
+    width: 100%;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    overflow-wrap: anywhere;
+}
+
+.project-details[hidden] {
+    display: none;
+}
+
+.project-details h4 {
+    color: var(--text);
+    font-size: 1rem;
+    margin: 14px 0 6px;
+}
+
+.project-details h4:first-child {
+    margin-top: 0;
+}
+
+.project-details p {
+    color: var(--muted);
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* Make sure screenshots fit smaller screens */
+@media (max-width: 650px) {
+    .project-image {
+        width: calc(100% + 52px);
+    }
+}
