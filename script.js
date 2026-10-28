@@ -307,3 +307,36 @@ copyEmailButton.addEventListener("click", async () => {
 filterButtons.forEach((button) => {
     button.addEventListener("click", filterProjects);
 });
+
+/* ================= PROJECT DETAILS ================= */
+
+const projectDetailButtons = document.querySelectorAll(
+    ".project-details-btn"
+);
+
+projectDetailButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const detailsId = button.getAttribute("aria-controls");
+        const details = document.getElementById(detailsId);
+
+        // Check that the associated details section exists.
+        if (!details) {
+            console.error(
+                `Project details section not found: ${detailsId}`
+            );
+            return;
+        }
+
+        const isExpanded =
+            button.getAttribute("aria-expanded") === "true";
+
+        // Toggle the details section.
+        details.hidden = isExpanded;
+        button.setAttribute("aria-expanded", String(!isExpanded));
+
+        // Update the button label.
+        button.textContent = isExpanded
+            ? "Project Details"
+            : "Hide Details";
+    });
+});
