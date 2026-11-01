@@ -329,6 +329,12 @@ textarea:focus-visible {
     font-size: 0.85rem;
 }
 
+/* Align Interests ordered list */
+.about-details ol {
+    padding-left: 20px;
+    margin-left: 0;
+}
+
 /* ================= 6. PROJECTS ================= */
 
 .project-search {
