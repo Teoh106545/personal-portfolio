@@ -478,6 +478,7 @@ textarea:focus-visible {
     display: none;
 }
 
+/* project detail headings */
 .project-details h4 {
     color: var(--text);
     font-size: 1rem;
@@ -488,10 +489,12 @@ textarea:focus-visible {
     margin-top: 0;
 }
 
+/* Centre-align project detail descriptions */
 .project-details p {
     color: var(--muted);
     margin-bottom: 12px;
     line-height: 1.6;
+    text-align: center;
 }
 
 /* Make sure screenshots fit smaller screens */
