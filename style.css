@@ -1,17 +1,19 @@
 /* ================= 1. GLOBAL SETTINGS ================= */
 
+/* Define reusable colour variables for the entire website */
 :root {
-    --bg: #101827;
-    --surface: #182337;
-    --surface-alt: #131e30;
-    --text: #edf2fa;
-    --muted: #a9b6c9;
-    --accent: #79b8ff;
-    --border: #344258;
-    --header-bg: rgba(16, 24, 39, 0.94);
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    --bg: #101827;                                    /* Main website background colour */
+    --surface: #182337;                               /* Background colour for cards and components */
+    --surface-alt: #131e30;                           /* Alternative background for sections */
+    --text: #edf2fa;                                  /* Main text colour */
+    --muted: #a9b6c9;                                 /* Secondary text colour */
+    --accent: #79b8ff;                                /* Highlight colour for buttons and links */
+    --border: #344258;                                /* Border colour */
+    --header-bg: rgba(16, 24, 39, 0.94);              /* Transparent header background */
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.18);        /* Component shadow */
 }
 
+/* Override the colour variables when light theme is activated */
 body.light-theme {
     --bg: #f5f7fb;
     --surface: #ffffff;
@@ -24,17 +26,20 @@ body.light-theme {
     --shadow: 0 10px 30px rgba(30, 50, 80, 0.08);
 }
 
+/* Remove default spacing and use border-box sizing for all elements */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Enable smooth scrolling and leave space for the sticky navigation */
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 85px;
 }
 
+/* Set the overall font, background, text colour and line spacing */
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: var(--bg);
@@ -43,22 +48,26 @@ body {
     transition: background 0.25s, color 0.25s;
 }
 
+/* Prevent images from exceeding their parent container */
 img {
     display: block;
     max-width: 100%;
 }
 
+/* Set the default appearance of hyperlinks */
 a {
     color: var(--accent);
     text-decoration: none;
 }
 
+/* Make form elements inherit the website's font */
 button,
 input,
 textarea {
     font: inherit;
 }
 
+/* Remove the default mobile tap highlight from links and buttons */
 button,
 a {
     -webkit-tap-highlight-color: transparent;
@@ -73,22 +82,26 @@ textarea:focus-visible {
     outline-offset: 4px;
 }
 
+/* Create a reusable container with a maximum width of 1100px */
 .container {
     width: min(1100px, 90%);
     margin-inline: auto;
 }
 
+/* Apply consistent top and bottom spacing to website sections */
 .section {
     padding: 90px 0;
     scroll-margin-top: 75px;
 }
 
+/* Apply an alternative background to selected sections */
 .section-alt {
     background: var(--surface-alt);
 }
 
 /* ================= 2. NAVIGATION ================= */
 
+/* Keep the navigation bar fixed at the top while scrolling */
 .header {
     position: sticky;
     top: 0;
@@ -98,6 +111,7 @@ textarea:focus-visible {
     border-bottom: 1px solid var(--border);
 }
 
+/* Arrange the logo, navigation links and buttons horizontally */
 .navbar {
     min-height: 72px;
     display: flex;
@@ -106,6 +120,7 @@ textarea:focus-visible {
     gap: 20px;
 }
 
+/* Style the website logo */
 .logo {
     color: var(--text);
     font-size: 1.35rem;
@@ -113,11 +128,13 @@ textarea:focus-visible {
     white-space: nowrap;
 }
 
+/* Highlight the logo dot and personal name using the accent colour */
 .logo span,
 .hero h1 span {
     color: var(--accent);
 }
 
+/* Arrange navigation links in a horizontal row */
 .nav-links {
     display: flex;
     align-items: center;
@@ -125,16 +142,19 @@ textarea:focus-visible {
     list-style: none;
 }
 
+/* Set the default appearance of navigation links */
 .nav-link {
     color: var(--muted);
     transition: color 0.2s;
 }
 
+/* Highlight navigation links when hovered or selected */
 .nav-link:hover,
 .nav-link.active {
     color: var(--accent);
 }
 
+/* Style the mobile menu and theme toggle buttons */
 .menu-toggle,
 .theme-toggle {
     border: 1px solid var(--border);
@@ -145,18 +165,21 @@ textarea:focus-visible {
     padding: 8px 12px;
 }
 
+/* Hide the mobile menu button on larger screens */
 .menu-toggle {
     display: none;
 }
 
-/* ================= 3. HOME / HERO ================= */
+/* ================= 3. HOME ================= */
 
+/* Vertically centre the home content within the section */
 .hero {
     min-height: 75vh;
     display: flex;
     align-items: center;
 }
 
+/* Divide the home section into text and image columns */
 .hero-content {
     display: grid;
     grid-template-columns: 1.4fr 0.8fr;
@@ -164,6 +187,7 @@ textarea:focus-visible {
     gap: 60px;
 }
 
+/* Style the small introductory text above section headings */
 .eyebrow {
     color: var(--accent);
     font-size: 0.8rem;
@@ -172,23 +196,27 @@ textarea:focus-visible {
     margin-bottom: 12px;
 }
 
+/* Style the main introduction heading */
 .hero h1 {
     font-size: clamp(2.3rem, 5vw, 4rem);
     line-height: 1.15;
     margin-bottom: 16px;
 }
 
+/* Style the course or professional title below the main heading */
 .hero h2 {
     font-size: 1.4rem;
     color: var(--muted);
     margin-bottom: 18px;
 }
 
+/* Limit the width and apply secondary text colour to the introduction */
 .hero-text > p:not(.eyebrow) {
     color: var(--muted);
     max-width: 560px;
 }
 
+/* Arrange the hero buttons horizontally with spacing */
 .hero-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -196,6 +224,7 @@ textarea:focus-visible {
     margin-top: 28px;
 }
 
+/* Create a reusable style for website buttons */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -208,29 +237,35 @@ textarea:focus-visible {
     transition: transform 0.2s, background 0.2s;
 }
 
+/* Move buttons slightly upwards when hovered */
 .btn:hover {
     transform: translateY(-2px);
 }
 
+/* Apply the filled accent background to primary buttons */
 .btn-primary {
     background: var(--accent);
     color: #101827;
 }
 
+/* Create an outlined button without a filled background */
 .btn-outline {
     color: var(--accent);
     background: transparent;
 }
 
+/* Add a background when outlined buttons are hovered */
 .btn-outline:hover {
     background: var(--surface);
 }
 
+/* Centre the profile image horizontally */
 .hero-image {
     display: flex;
     justify-content: center;
 }
 
+/* Set the profile image size, shape and appearance */
 .hero-image img {
     width: 300px;
     aspect-ratio: 1;
@@ -240,6 +275,7 @@ textarea:focus-visible {
     box-shadow: var(--shadow);
 }
 
+/* Hide the skip link outside the visible screen area */
 .skip-link {
     position: absolute;
     top: -100px;
@@ -250,35 +286,41 @@ textarea:focus-visible {
     color: #101827;
 }
 
+/* Show the skip link when it receives keyboard focus */
 .skip-link:focus {
     top: 12px;
 }
 
 /* ================= 4. SECTION HEADINGS ================= */
 
+/* Centre-align section headings and limit their maximum width */
 .section-heading {
     text-align: center;
     max-width: 650px;
     margin: 0 auto 45px;
 }
 
+/* Set the size and spacing of section titles */
 .section-heading h2 {
     font-size: clamp(2rem, 4vw, 2.7rem);
     margin-bottom: 12px;
 }
 
+/* Apply secondary text colour to section descriptions */
 .section-heading > p:last-child {
     color: var(--muted);
 }
 
 /* ================= 5. ABOUT ME ================= */
 
+/* Arrange the About Me content into two equal columns */
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 55px;
 }
 
+/* Style headings in the About Me and Contact sections */
 .about-text h3,
 .about-details h3,
 .contact-info h3 {
@@ -286,6 +328,7 @@ textarea:focus-visible {
     margin-bottom: 16px;
 }
 
+/* Apply secondary text colour and consistent spacing to paragraphs */
 .about-text p,
 .about-details p,
 .contact-info p {
@@ -294,20 +337,24 @@ textarea:focus-visible {
     line-height: 1.5;
 }
 
+/* Add spacing above the resume download button */
 .about-text .btn {
     margin-top: 10px;
 }
 
+/* Create a vertical accent border beside education information */
 .detail-item {
     border-left: 3px solid var(--accent);
     padding: 4px 0 4px 18px;
     margin-bottom: 28px;
 }
 
+/* Adjust spacing between education details */
 .detail-item p {
     margin-bottom: 4px;
 }
 
+/* Arrange skill labels in a flexible row */
 .skill-list,
 .project-tags {
     display: flex;
@@ -315,10 +362,12 @@ textarea:focus-visible {
     gap: 10px;
 }
 
+/* Add spacing below the skills list */
 .skill-list {
     margin-bottom: 28px;
 }
 
+/* Style individual skill and project technology labels */
 .skill-list span,
 .project-tags span {
     padding: 5px 12px;
@@ -335,19 +384,27 @@ textarea:focus-visible {
     margin-left: 0;
 }
 
+/* Add spacing between individual interest items */
+.about-details ol li {
+    margin-bottom: 6px;
+}
+
 /* ================= 6. PROJECTS ================= */
 
+/* Limit the width of the project search area and centre it */
 .project-search {
     max-width: 560px;
     margin: 0 auto 28px;
 }
 
+/* Display the search label on its own line */
 .project-search label {
     display: block;
     margin-bottom: 8px;
     font-weight: 700;
 }
 
+/* Style the project search input field */
 .project-search input {
     width: 100%;
     padding: 12px 14px;
@@ -357,12 +414,14 @@ textarea:focus-visible {
     color: var(--text);
 }
 
+/* Style the message showing the number of matching projects */
 #project-search-status {
     margin-top: 8px;
     color: var(--muted);
     font-size: 0.9rem;
 }
 
+/* Arrange the category filter buttons in the centre */
 .project-filters {
     display: flex;
     justify-content: center;
@@ -371,6 +430,7 @@ textarea:focus-visible {
     margin-bottom: 32px;
 }
 
+/* Style individual project filter buttons */
 .filter-btn {
     padding: 8px 17px;
     background: var(--surface);
@@ -380,6 +440,7 @@ textarea:focus-visible {
     cursor: pointer;
 }
 
+/* Highlight the selected filter and hovered filter buttons */
 .filter-btn:hover,
 .filter-btn.active {
     background: var(--accent);
@@ -387,12 +448,14 @@ textarea:focus-visible {
     border-color: var(--accent);
 }
 
+/* Arrange project cards into three columns */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
 }
 
+/* Create the basic appearance and layout of project cards */
 .project-card {
     display: flex;
     flex-direction: column;
@@ -405,16 +468,19 @@ textarea:focus-visible {
     transition: transform 0.25s, border-color 0.25s;
 }
 
+/* Move project cards upwards and highlight their borders on hover */
 .project-card:hover {
     transform: translateY(-5px);
     border-color: var(--accent);
 }
 
+/* Style the project titles */
 .project-card h3 {
     font-size: 1.25rem;
     margin: 15px 0 10px;
 }
 
+/* Style and justify the short descriptions below project titles */
 .project-card > p {
     color: var(--muted);
     margin-bottom: 18px;
@@ -422,6 +488,7 @@ textarea:focus-visible {
     text-align: justify;
 }
 
+/* Style the project numbering labels */
 .project-number {
     color: var(--accent);
     font-size: 0.8rem;
@@ -429,44 +496,49 @@ textarea:focus-visible {
     letter-spacing: 1px;
 }
 
+/* Add spacing below project technology labels */
 .project-tags {
     margin-bottom: 20px;
 }
 
+/* Style project links */
 .project-link {
     font-weight: 700;
 }
 
+/* Ensure filtered-out project cards are not displayed */
 .project-card[hidden] {
     display: none;
 }
 
 /* --Project Screenshots-- */
 
+/* Hide image overflow within project cards */
 .project-card {
     overflow: hidden;
 }
 
+/* Set project screenshots to fill the card width */
 .project-image {
     display: block;
     width: calc(100% + 52px);
     max-width: none;
     height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    object-position: center;
-    margin: -26px -26px 20px;
+    aspect-ratio: 16 / 9;                         /* Maintain a consistent 16:9 screenshot ratio */
+    object-fit: cover;                            /* Crop images to fill the available space */
+    object-position: center;                      /* Crop images to fill the available space */
+    margin: -26px -26px 20px;                     /* Extend the image to the card's outer edges */
     border-bottom: 1px solid var(--border);
 }
 
-/* Project Details button */
+/* Push the Project Details button towards the bottom of the card */
 .project-details-btn {
     margin-top: auto;
     margin-bottom: 8px;
     font: inherit;
 }
 
-/* Expanded project information */
+/* Style the expanded project information area */
 .project-details {
     width: 100%;
     margin-top: 16px;
@@ -475,22 +547,24 @@ textarea:focus-visible {
     overflow-wrap: anywhere;
 }
 
+/* Hide project details when the hidden attribute is present */
 .project-details[hidden] {
     display: none;
 }
 
-/* project detail headings */
+/* Style headings inside expanded project information */
 .project-details h4 {
     color: var(--text);
     font-size: 1rem;
     margin: 14px 0 6px;
 }
 
+/* Remove the top margin from the first project detail heading */
 .project-details h4:first-child {
     margin-top: 0;
 }
 
-/* Centre-align project detail descriptions */
+/* Justify project detail descriptions between both margins */
 .project-details p {
     color: var(--muted);
     margin-bottom: 12px;
@@ -507,27 +581,32 @@ textarea:focus-visible {
 
 /* ================= 7. CONTACT ================= */
 
+/* Divide contact information and contact form into two columns */
 .contact-content {
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
     gap: 55px;
 }
 
+/* Prevent long email and website addresses from overflowing */
 .contact-info a {
     overflow-wrap: anywhere;
 }
 
+/* Arrange contact form fields vertically */
 .contact-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
+/* Style contact form labels */
 .contact-form label {
     font-weight: 700;
     margin-top: 8px;
 }
 
+/* Style text input fields and message textarea */
 .contact-form input,
 .contact-form textarea {
     width: 100%;
@@ -538,15 +617,18 @@ textarea:focus-visible {
     color: var(--text);
 }
 
+/* Allow visitors to resize the message box vertically */
 .contact-form textarea {
     resize: vertical;
 }
 
+/* Align the submit button to the left */
 .contact-form .btn {
     align-self: flex-start;
     margin-top: 12px;
 }
 
+/* Style contact form status messages */
 .form-status {
     color: var(--muted);
     overflow-wrap: anywhere;
@@ -567,17 +649,19 @@ textarea:focus-visible {
     transition: background 0.2s, color 0.2s;
 }
 
+/* Change the Copy Email button appearance on hover */
 .copy-email-btn:hover {
     background: var(--accent);
     color: var(--bg);
 }
 
+/* Add a visible keyboard focus outline to the Copy Email button */
 .copy-email-btn:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
 }
 
-/* Message will appear beside the copy email button */
+/* Display the copy confirmation message beside the button */
 #copy-email-status {
     display: inline-block;
     margin-left: 8px;
@@ -585,23 +669,23 @@ textarea:focus-visible {
     color: var(--accent);
 }
 
-/* Reduce spacing in the contact section */
+/* Add a small top spacing to contact information */
 .contact-info {
     margin-top: 12px;
 }
 
-/* Contact Spacing */
-/* Space below the Contact Me heading and description */
+/* ------ Contact Spacing ------ */
+/* Adjust spacing below the Contact Me heading */
 #contact .section-heading {
     margin-bottom: 35px;
 }
 
-/* Spacing below Let's Connect */
+/* Reduce spacing below the Let's Connect heading */
 #contact .contact-info h3 {
     margin-bottom: 12px;
 }
 
-/* Larger gap after the introductory description */
+/* Add extra spacing below the introductory contact paragraph */
 #contact .contact-info h3 + p {
     margin-top: 6px;
     margin-bottom: 35px;
@@ -614,14 +698,15 @@ textarea:focus-visible {
     margin-bottom: 6px;
 }
 
-
 /* ================= 8. FOOTER ================= */
 
+/* Add a top border and spacing to separate the footer */
 .footer {
     border-top: 1px solid var(--border);
     padding: 25px 0;
 }
 
+/* Arrange footer text and Back to Top link horizontally */
 .footer .container {
     display: flex;
     align-items: center;
@@ -630,12 +715,14 @@ textarea:focus-visible {
     flex-wrap: wrap;
 }
 
+/* Use secondary text colour for copyright information */
 .footer p {
     color: var(--muted);
 }
 
 /* ================= 9. BACK TO TOP ================= */
 
+/* Position the Back to Top button at the bottom-right corner */
 .back-to-top {
     position: fixed;
     right: 24px;
@@ -649,12 +736,15 @@ textarea:focus-visible {
     font-size: 1.3rem;
     cursor: pointer;
     box-shadow: var(--shadow);
+    /* Hide the button initially */
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
+    /* Animate the button when it becomes visible */
     transition: opacity 0.2s, transform 0.2s;
 }
 
+/* Display the button after the visitor scrolls down */
 .back-to-top.visible {
     opacity: 1;
     visibility: visible;
@@ -663,12 +753,14 @@ textarea:focus-visible {
 
 /* ================= 10. SCROLL REVEAL ================= */
 
+/* Initially hide elements and move them slightly downwards */
 .reveal {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s, transform 0.6s;
 }
 
+/* Reveal elements when JavaScript adds the show class */
 .reveal.show {
     opacity: 1;
     transform: translateY(0);
@@ -676,36 +768,45 @@ textarea:focus-visible {
 
 /* ================= 11. RESPONSIVE DESIGN ================= */
 
+/* Adjust the layout for tablets and medium-sized screens */
 @media (max-width: 900px) {
+    /* Reduce the spacing between home content */
     .hero-content {
         gap: 30px;
     }
 
+    /* Reduce the profile image size */
     .hero-image img {
         width: 250px;
     }
 
+    /* Display project cards in two columns */
     .project-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+/* Adjust the layout for mobile phones */
 @media (max-width: 650px) {
+    /* Reduce vertical spacing between sections */
     .section {
         padding: 65px 0;
     }
 
+    /* Allow the navigation items to wrap onto multiple lines */
     .navbar {
         flex-wrap: wrap;
         padding-top: 12px;
         padding-bottom: 12px;
     }
 
+    /* Display the mobile menu button */
     .menu-toggle {
         display: block;
         margin-left: auto;
     }
 
+    /* Hide the navigation menu initially on mobile */
     .nav-links {
         display: none;
         order: 4;
@@ -716,19 +817,23 @@ textarea:focus-visible {
         padding: 8px 0;
     }
 
+    /* Display the navigation menu when JavaScript adds the open class */
     .nav-links.open {
         display: flex;
     }
 
+     /* Make navigation links easier to tap on mobile */
     .nav-links a {
         display: block;
         padding: 10px 4px;
     }
 
+    /* Remove the minimum hero height on mobile */
     .hero {
         min-height: auto;
     }
 
+    /* Change major content grids into single-column layouts */
     .hero-content,
     .about-grid,
     .contact-content {
@@ -736,22 +841,27 @@ textarea:focus-visible {
         gap: 35px;
     }
 
+    /* Display the profile image above the introduction */
     .hero-image {
         order: -1;
     }
 
+    /* Reduce the profile image size on mobile */
     .hero-image img {
         width: min(230px, 70%);
     }
 
+    /* Display project cards in one column */
     .project-grid {
         grid-template-columns: 1fr;
     }
 
+    /* Reduce spacing below section headings */
     .section-heading {
         margin-bottom: 32px;
     }
 
+    /* Stack footer content vertically */
     .footer .container {
         flex-direction: column;
         align-items: flex-start;
@@ -760,10 +870,12 @@ textarea:focus-visible {
 
 /* Respect visitors who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
+    /* Disable smooth scrolling */
     html {
         scroll-behavior: auto;
     }
 
+    /* Minimise animation and transition durations */
     *,
     *::before,
     *::after {
@@ -771,6 +883,7 @@ textarea:focus-visible {
         transition-duration: 0.01ms !important;
     }
 
+    /* Ensure reveal elements remain visible */
     .reveal {
         opacity: 1;
         transform: none;
