@@ -73,105 +73,23 @@ try {
 
 updateThemeButton();
 
-// ================= 3. PROJECT FILTERING AND SEARCH =================
+// ================= 3. PROJECT FILTERING =================
 
 const filterButtons = document.querySelectorAll(".filter-btn");
 const projectCards = document.querySelectorAll(".project-card");
 
-const projectSearchInput =
-    document.getElementById("project-search-input");
-
-const projectSearchStatus =
-    document.getElementById("project-search-status");
-
-function filterProjects() {
-
-    // Get the currently selected category.
-    const activeFilter = document.querySelector(
-        ".filter-btn.active"
-    );
-
-    const selectedCategory = activeFilter
-        ? activeFilter.dataset.filter
-        : "all";
-
-    // Get the search keyword.
-    const searchTerm = projectSearchInput.value
-        .trim()
-        .toLowerCase();
-
-    let visibleCount = 0;
-
-    // Check every project card.
-    projectCards.forEach((card) => {
-
-        // Get all categories assigned to this project.
-        const categories = card.dataset.category
-            .toLowerCase()
-            .trim()
-            .split(/\s+/);
-
-        // Check category.
-        const matchesCategory =
-            selectedCategory === "all" ||
-            categories.includes(selectedCategory);
-
-        // Check search keyword.
-        const matchesSearch = card.textContent
-            .toLowerCase()
-            .includes(searchTerm);
-
-        // Both conditions must be satisfied.
-        const isVisible =
-            matchesCategory && matchesSearch;
-
-        // Show or hide the project.
-        card.hidden = !isVisible;
-
-        // Count visible projects.
-        if (isVisible) {
-            visibleCount++;
-        }
-    });
-
-    // Update search result message.
-    projectSearchStatus.textContent =
-        `${visibleCount} project${visibleCount === 1 ? "" : "s"} found.`;
-}
-
-// Category filter buttons.
 filterButtons.forEach((button) => {
-
     button.addEventListener("click", () => {
-
         filterButtons.forEach((item) => {
-
             const selected = item === button;
 
             item.classList.toggle("active", selected);
-
-            item.setAttribute(
-                "aria-pressed",
-                String(selected)
-            );
-
+            item.setAttribute("aria-pressed", String(selected));
         });
 
         filterProjects();
-
     });
-
-});
-
-
-// Live search.
-projectSearchInput.addEventListener(
-    "input",
-    filterProjects
-);
-
-// Display all projects initially.
-filterProjects();
+});;
 
 // ================= 4. SCROLL REVEAL ANIMATION =================
 
@@ -303,7 +221,56 @@ document.getElementById("current-year").textContent =
     new Date().getFullYear();
 
 
-/* ================= 9.  ================= */
+/* ================= 9. LIVE PROJECT SEARCH  ================= */
+
+const projectSearchInput =
+    document.getElementById("project-search-input");
+
+const projectSearchStatus =
+    document.getElementById("project-search-status");
+
+function filterProjects() {
+    // Read the current category selected by the visitor.
+    const activeFilter = document.querySelector(
+        ".filter-btn.active"
+    );
+
+    const selectedCategory = activeFilter
+        ? activeFilter.dataset.filter
+        : "all";
+
+    const searchTerm = projectSearchInput.value
+        .trim()
+        .toLowerCase();
+
+    let visibleCount = 0;
+
+    projectCards.forEach((card) => {
+        const matchesCategory =
+            selectedCategory === "all" ||
+            card.dataset.category.split(" ").includes(selectedCategory);
+
+        // Search the project title, description and technology tags.
+        const matchesSearch = card.textContent
+            .toLowerCase()
+            .includes(searchTerm);
+
+        card.style.display = matchesCategory && matchesSearch ? "" : "none";
+
+        const isVisible = matchesCategory && matchesSearch;
+
+        card.hidden = !isVisible;
+
+        if (isVisible) {
+            visibleCount++;
+        }
+    });
+
+    projectSearchStatus.textContent =
+        `${visibleCount} project${visibleCount === 1 ? "" : "s"} found.`;
+}
+
+projectSearchInput.addEventListener("input", filterProjects);
 
 /* ================= 10. COPY EMAIL ADDRESS ================= */
 
