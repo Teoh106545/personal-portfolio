@@ -248,7 +248,7 @@ function filterProjects() {
     projectCards.forEach((card) => {
         const matchesCategory =
             selectedCategory === "all" ||
-            card.dataset.category === selectedCategory;
+            card.dataset.category.split(" ").includes(selectedCategory);
 
         // Search the project title, description and technology tags.
         const matchesSearch = card.textContent
