@@ -85,60 +85,90 @@ const projectSearchStatus =
     document.getElementById("project-search-status");
 
 function filterProjects() {
-    const activeFilter = document.querySelector(".filter-btn.active");
+
+    // Get the currently selected category.
+    const activeFilter = document.querySelector(
+        ".filter-btn.active"
+    );
 
     const selectedCategory = activeFilter
         ? activeFilter.dataset.filter
         : "all";
 
-    const searchTerm = projectSearchInput.value.trim().toLowerCase();
+    // Get the search keyword.
+    const searchTerm = projectSearchInput.value
+        .trim()
+        .toLowerCase();
 
     let visibleCount = 0;
 
+    // Check every project card.
     projectCards.forEach((card) => {
-        // Allow one project to have multiple categories.
+
+        // Get all categories assigned to this project.
         const categories = card.dataset.category
+            .toLowerCase()
             .trim()
             .split(/\s+/);
 
+        // Check category.
         const matchesCategory =
             selectedCategory === "all" ||
             categories.includes(selectedCategory);
 
+        // Check search keyword.
         const matchesSearch = card.textContent
             .toLowerCase()
             .includes(searchTerm);
 
-        const isVisible = matchesCategory && matchesSearch;
+        // Both conditions must be satisfied.
+        const isVisible =
+            matchesCategory && matchesSearch;
 
+        // Show or hide the project.
         card.hidden = !isVisible;
-        card.style.display = isVisible ? "" : "none";
 
+        // Count visible projects.
         if (isVisible) {
             visibleCount++;
         }
     });
 
+    // Update search result message.
     projectSearchStatus.textContent =
         `${visibleCount} project${visibleCount === 1 ? "" : "s"} found.`;
 }
 
-// Category filter buttons
+// Category filter buttons.
 filterButtons.forEach((button) => {
+
     button.addEventListener("click", () => {
+
         filterButtons.forEach((item) => {
+
             const selected = item === button;
 
             item.classList.toggle("active", selected);
-            item.setAttribute("aria-pressed", String(selected));
+
+            item.setAttribute(
+                "aria-pressed",
+                String(selected)
+            );
+
         });
 
         filterProjects();
+
     });
+
 });
 
-// Live project search
-projectSearchInput.addEventListener("input", filterProjects);
+
+// Live search.
+projectSearchInput.addEventListener(
+    "input",
+    filterProjects
+);
 
 // Display all projects initially.
 filterProjects();
