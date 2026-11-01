@@ -255,6 +255,8 @@ function filterProjects() {
             .toLowerCase()
             .includes(searchTerm);
 
+        card.style.display = matchesCategory && matchesSearch ? "" : "none";
+
         const isVisible = matchesCategory && matchesSearch;
 
         card.hidden = !isVisible;
