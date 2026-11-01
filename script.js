@@ -73,7 +73,55 @@ try {
 
 updateThemeButton();
 
-// ================= 3. PROJECT FILTERING =================
+// ================= 3. PROJECT FILTERING AND SEARCH =================
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projectCards = document.querySelectorAll(".project-card");
+
+const projectSearchInput =
+    document.getElementById("project-search-input");
+
+const projectSearchStatus =
+    document.getElementById("project-search-status");
+
+function filterProjects() {
+    const activeFilter = document.querySelector(".filter-btn.active");
+
+    const selectedCategory = activeFilter
+        ? activeFilter.dataset.filter
+        : "all";
+
+    const searchTerm = projectSearchInput.value.trim().toLowerCase();
+
+    let visibleCount = 0;
+
+    projectCards.forEach((card) => {
+        // Allow one project to have multiple categories.
+        const categories = card.dataset.category
+            .trim()
+            .split(/\s+/);
+
+        const matchesCategory =
+            selectedCategory === "all" ||
+            categories.includes(selectedCategory);
+
+        const matchesSearch = card.textContent
+            .toLowerCase()
+            .includes(searchTerm);
+
+        const isVisible = matchesCategory && matchesSearch;
+
+        card.hidden = !isVisible;
+        card.style.display = isVisible ? "" : "none";
+
+        if (isVisible) {
+            visibleCount++;
+        }
+    });
+
+    projectSearchStatus.textContent =
+        `${visibleCount} project${visibleCount === 1 ? "" : "s"} found.`;
+}
 
 // Category filter buttons
 filterButtons.forEach((button) => {
