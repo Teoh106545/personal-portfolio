@@ -419,6 +419,7 @@ textarea:focus-visible {
     color: var(--muted);
     margin-bottom: 18px;
     flex-grow: 1;
+    text-align: justify;
 }
 
 .project-number {
@@ -494,7 +495,7 @@ textarea:focus-visible {
     color: var(--muted);
     margin-bottom: 12px;
     line-height: 1.6;
-    text-align: center;
+    text-align: justify;
 }
 
 /* Make sure screenshots fit smaller screens */
