@@ -698,6 +698,31 @@ textarea:focus-visible {
     margin-bottom: 6px;
 }
 
+/* ------ Contact icons ------ */
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.contact-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+}
+
+.contact-icon:hover {
+    transform: scale(1.15);
+}
+
+.contact-link a {
+    display: inline-flex;
+    align-items: center;
+}
+
 /* ================= 8. FOOTER ================= */
 
 /* Add a top border and spacing to separate the footer */
