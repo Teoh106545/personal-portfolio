@@ -305,8 +305,10 @@ copyEmailButton.addEventListener("click", async () => {
     }
 });
 
+
 /* ================= PROJECT DETAILS ================= */
 
+// Open project details
 const projectDetailButtons = document.querySelectorAll(".project-details-btn");
 
 projectDetailButtons.forEach((button) => {
@@ -314,30 +316,18 @@ projectDetailButtons.forEach((button) => {
         const detailsId = button.getAttribute("aria-controls");
         const details = document.getElementById(detailsId);
 
-        if (!details) {
-            console.error(`Project details not found: ${detailsId}`);
-            return;
-        }
+        if (!details) return;
 
-        const isExpanded = button.getAttribute("aria-expanded") === "true";
-
-        // Toggle project details
-        details.hidden = isExpanded;
+        // Show project details
+        details.hidden = false;
 
         // Update accessibility attribute
-        button.setAttribute(
-            "aria-expanded",
-            String(!isExpanded)
-        );
+        button.setAttribute("aria-expanded", "true");
 
-        // Update button text
-        button.textContent = isExpanded
-            ? "View Details"
-            : "Hide Details";
     });
 });
 
-// Handle Hide Details buttons
+// Close project details
 const closeDetailButtons = document.querySelectorAll(
     ".project-details-close"
 );
@@ -348,19 +338,16 @@ closeDetailButtons.forEach((closeButton) => {
 
         if (!details) return;
 
+        // Hide project details
         details.hidden = true;
 
-        // Find the corresponding View Details button
+        // Reset the View Details button
         const card = closeButton.closest(".project-card");
+
         const toggleButton = card.querySelector(".project-details-btn");
 
         if (toggleButton) {
-            toggleButton.textContent = "View Details";
-
-            toggleButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+            toggleButton.setAttribute("aria-expanded", "false");
         }
     });
 });
