@@ -307,39 +307,43 @@ copyEmailButton.addEventListener("click", async () => {
 
 /* ================= PROJECT DETAILS ================= */
 
-const projectDetailButtons = document.querySelectorAll(
-    ".project-details-btn"
-);
+const projectDetailButtons = document.querySelectorAll(".project-details-btn");
 
 projectDetailButtons.forEach((button) => {
     button.addEventListener("click", () => {
         const detailsId = button.getAttribute("aria-controls");
         const details = document.getElementById(detailsId);
 
-        // Check that the associated details section exists.
         if (!details) {
-            console.error(`Project details section not found: ${detailsId}`);
+            console.error(`Project details not found: ${detailsId}`);
             return;
         }
 
-        const isExpanded =
-            button.getAttribute("aria-expanded") === "true";
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
 
-        // Toggle the details section
+        // Toggle project details
         details.hidden = isExpanded;
-        // Update accessibility attribute
-        button.setAttribute("aria-expanded", String(!isExpanded));
 
-        // Update the button label
+        // Update accessibility attribute
+        button.setAttribute(
+            "aria-expanded",
+            String(!isExpanded)
+        );
+
+        // Update button text
         button.textContent = isExpanded
             ? "View Details"
             : "Hide Details";
+    });
+});
 
-        // Handle Hide Details buttons
-        const closeDetailButtons = document.querySelectorAll(".project-details-close");
-            closeDetailButtons.forEach((closeButton) => {
-            closeButton.addEventListener("click", () => {
+// Handle Hide Details buttons
+const closeDetailButtons = document.querySelectorAll(
+    ".project-details-close"
+);
 
+closeDetailButtons.forEach((closeButton) => {
+    closeButton.addEventListener("click", () => {
         const details = closeButton.closest(".project-details");
 
         if (!details) return;
@@ -348,10 +352,7 @@ projectDetailButtons.forEach((button) => {
 
         // Find the corresponding View Details button
         const card = closeButton.closest(".project-card");
-
-        const toggleButton = card.querySelector(
-            ".project-details-btn"
-        );
+        const toggleButton = card.querySelector(".project-details-btn");
 
         if (toggleButton) {
             toggleButton.textContent = "View Details";
