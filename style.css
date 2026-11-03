@@ -130,7 +130,7 @@ textarea:focus-visible {
 
 /* Highlight the logo dot and personal name using the accent colour */
 .logo span,
-.hero h1 span {
+.home h1 span {
     color: var(--accent);
 }
 
@@ -173,14 +173,14 @@ textarea:focus-visible {
 /* ================= 3. HOME ================= */
 
 /* Vertically centre the home content within the section */
-.hero {
+.home {
     min-height: 75vh;
     display: flex;
     align-items: center;
 }
 
 /* Divide the home section into text and image columns */
-.hero-content {
+.home-content {
     display: grid;
     grid-template-columns: 1.4fr 0.8fr;
     align-items: center;
@@ -197,27 +197,27 @@ textarea:focus-visible {
 }
 
 /* Style the main introduction heading */
-.hero h1 {
+.home h1 {
     font-size: clamp(2.3rem, 5vw, 4rem);
     line-height: 1.15;
     margin-bottom: 16px;
 }
 
 /* Style the course or professional title below the main heading */
-.hero h2 {
+.home h2 {
     font-size: 1.4rem;
     color: var(--muted);
     margin-bottom: 18px;
 }
 
 /* Limit the width and apply secondary text colour to the introduction */
-.hero-text > p:not(.eyebrow) {
+.home-text > p:not(.eyebrow) {
     color: var(--muted);
     max-width: 560px;
 }
 
 /* Arrange the hero buttons horizontally with spacing */
-.hero-buttons {
+.home-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
@@ -260,13 +260,13 @@ textarea:focus-visible {
 }
 
 /* Centre the profile image horizontally */
-.hero-image {
+.home-image {
     display: flex;
     justify-content: center;
 }
 
 /* Set the profile image size, shape and appearance */
-.hero-image img {
+.home-image img {
     width: 300px;
     aspect-ratio: 1;
     object-fit: cover;
@@ -796,12 +796,12 @@ textarea:focus-visible {
 /* Adjust the layout for tablets and medium-sized screens */
 @media (max-width: 900px) {
     /* Reduce the spacing between home content */
-    .hero-content {
+    .home-content {
         gap: 30px;
     }
 
     /* Reduce the profile image size */
-    .hero-image img {
+    .home-image img {
         width: 250px;
     }
 
@@ -854,12 +854,12 @@ textarea:focus-visible {
     }
 
     /* Remove the minimum hero height on mobile */
-    .hero {
+    .home {
         min-height: auto;
     }
 
     /* Change major content grids into single-column layouts */
-    .hero-content,
+    .home-content,
     .about-grid,
     .contact-content {
         grid-template-columns: 1fr;
@@ -867,12 +867,12 @@ textarea:focus-visible {
     }
 
     /* Display the profile image above the introduction */
-    .hero-image {
+    .home-image {
         order: -1;
     }
 
     /* Reduce the profile image size on mobile */
-    .hero-image img {
+    .home-image img {
         width: min(230px, 70%);
     }
 
