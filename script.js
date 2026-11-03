@@ -335,5 +335,23 @@ projectDetailButtons.forEach((button) => {
         button.textContent = isExpanded
             ? "Project Details"
             : "Hide Details";
+
+        document.querySelectorAll(".project-card").forEach((card) => {
+            const toggleButton = card.querySelector(".project-details-btn");
+            const details = card.querySelector(".project-details");
+
+            if (!toggleButton || !details) return;
+
+            toggleButton.addEventListener("click", () => {
+            const isHidden = details.hidden;
+
+            details.hidden = !isHidden;
+            toggleButton.textContent = isHidden ? "Hide Details" : "View Details";
+            toggleButton.setAttribute("aria-expanded", String(isHidden));
+
+        card.querySelector(".project-details-close")?.addEventListener("click", () => {
+            details.hidden = true;
+            toggleButton.textContent = "View Details";
+            toggleButton.setAttribute("aria-expanded", "false");
     });
 });
