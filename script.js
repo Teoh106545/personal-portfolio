@@ -348,7 +348,9 @@ projectDetailButtons.forEach((button) => {
             details.hidden = !isHidden;
             toggleButton.textContent = isHidden ? "Hide Details" : "View Details";
             toggleButton.setAttribute("aria-expanded", String(isHidden));
+        });
 
+        // Close details using the bottom button
         card.querySelector(".project-details-close")?.addEventListener("click", () => {
             details.hidden = true;
             toggleButton.textContent = "View Details";
