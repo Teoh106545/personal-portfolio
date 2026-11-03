@@ -308,8 +308,12 @@ copyEmailButton.addEventListener("click", async () => {
 /* ================= PROJECT DETAILS ================= */
 
 // Open project details
-const projectDetailButtons = document.querySelectorAll(".project-details-btn");
+const projectDetailButtons = document.querySelectorAll(
+    ".project-details-btn"
+);
+
 projectDetailButtons.forEach((button) => {
+
     button.addEventListener("click", () => {
 
         const detailsId = button.getAttribute("aria-controls");
@@ -325,12 +329,17 @@ projectDetailButtons.forEach((button) => {
 
         // Update accessibility attribute
         button.setAttribute("aria-expanded", "true");
+
     });
 });
 
 // Close project details
-const closeDetailButtons = document.querySelectorAll(".project-details-close");
+const closeDetailButtons = document.querySelectorAll(
+    ".project-details-close"
+);
+
 closeDetailButtons.forEach((closeButton) => {
+
     closeButton.addEventListener("click", () => {
 
         const details = closeButton.closest(".project-details");
@@ -343,7 +352,9 @@ closeDetailButtons.forEach((closeButton) => {
         // Find the corresponding project card
         const card = closeButton.closest(".project-card");
 
-        const toggleButton = card.querySelector(".project-details-btn");
+        const toggleButton = card.querySelector(
+            ".project-details-btn"
+        );
 
         if (toggleButton) {
 
@@ -354,5 +365,6 @@ closeDetailButtons.forEach((closeButton) => {
             toggleButton.setAttribute("aria-expanded", "false");
 
         }
+
     });
 });
