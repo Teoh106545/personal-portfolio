@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">                                                    <!-- Define the character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <!-- Make the website responsive on different screen sizes -->
 
     <meta name="description"
           content="Personal portfolio showcasing my skills, education and projects.">
@@ -26,6 +26,7 @@
 
             <a href="#home" class="logo">MyPortfolio<span>.</span></a>
 
+            <!-- Button for opening and closing the mobile navigation menu -->
             <button class="menu-toggle"
                     id="menu-toggle"
                     aria-label="Open navigation menu"
@@ -34,6 +35,7 @@
                 ☰
             </button>
 
+            <!-- Main navigation links to different website sections -->
             <ul class="nav-links" id="nav-links">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About Me</a></li>
@@ -41,6 +43,7 @@
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
 
+            <!-- Button for switching between dark and light themes -->
             <button class="theme-toggle"
                     id="theme-toggle"
                     aria-label="Switch to light theme">
@@ -50,6 +53,7 @@
         </nav>
     </header>
 
+    <!-- Main element contains the primary content of the website -->
     <main id="main-content">
 
         <!-- ================= HOME ================= -->
@@ -68,6 +72,7 @@
                         I am interested in software development and web design.
                     </p>
 
+                    <!-- Buttons linking to Projects and Contact sections -->
                     <div class="home-buttons">
                         <a href="#projects" class="btn btn-primary">
                             View My Projects
@@ -79,6 +84,7 @@
                     </div>
                 </div>
 
+                <!-- Personal profile image -->
                 <div class="home-image">
                     <!-- The place where users put their personal image-->
                     <img src="assets/profile.jpg"
@@ -100,6 +106,7 @@
                     <p>A little introduction about my background.</p>
                 </div>
 
+                <!-- Two-column layout containing personal and academic information -->
                 <div class="about-grid">
 
                     <div class="about-text">
@@ -113,6 +120,7 @@
                             I hope that I can apply my programming knowledge, problem-solving skills and passion for code and user experience to contribute to organisational success while gaining professional experience in software development.
                         </p>
 
+                        <!-- Download button for my Curriculum Vitae -->
                         <a href="assets/Curriculum Vitae.pdf"
                            class="btn btn-primary"
                            download>
@@ -155,6 +163,7 @@
         <section id="projects" class="section section-alt reveal">
             <div class="container">
 
+                <!-- Section heading and project introduction -->
                 <div class="section-heading">
                     <p class="eyebrow">MY WORK</p>
                     <h2>My Projects</h2>
@@ -164,7 +173,7 @@
                     </p>
                 </div>
 
-                <!-- Live project search -->
+                <!-- Search input for finding projects by name or technology -->
                 <div class="project-search">
                     <label for="project-search-input">Search my projects</label>
                     <input
@@ -173,10 +182,11 @@
                         placeholder="Search by project name or technology..."
                         aria-describedby="project-search-status"
                     >
+                    <!-- Display the number of projects matching the search -->
                     <p id="project-search-status" role="status" aria-live="polite"></p>
                 </div>
                 
-                <!-- JavaScript project filters -->
+                <!-- Category filter buttons for displaying selected project types -->
                 <div class="project-filters"
                      role="group"
                      aria-label="Filter projects">
@@ -202,9 +212,10 @@
                             aria-pressed="false">Design</button>
                 </div>
 
+                <!-- Grid layout containing all project cards -->
                 <div class="project-grid">
 
-                    <!-- Project 1 -->
+                    <!-- PROJECT 1: SARAWAK HERITAGE ONLINE AUCTION -->
                     <article class="project-card" data-category="web database">
                         <img
                             src="images/Project ERD.png"
@@ -269,7 +280,7 @@
                         </div>
                     </article>
 
-                    <!-- Project 2 -->
+                    <!-- PROJECT 2: SDG LEARNING APPLICATION -->
                     <article class="project-card" data-category="programming">
                         <img
                             src="images/SDG Learning App.png"
@@ -332,7 +343,7 @@
                         </div>
                     </article>
 
-                    <!-- Project 3 -->
+                    <!-- PROJECT 3: MOBILE APPLICATION PROTOTYPE -->
                     <article class="project-card" data-category="design">
                         <img
                             src="images/Mobile Application Prototype.png"
@@ -396,7 +407,7 @@
                         </div>
                     </article>
 
-                    <!-- Project 4 -->
+                    <!-- PROJECT 4: 2D COMPUTER GAME -->
                     <article class="project-card" data-category="programming">
                         <img
                             src="images/Wizard Pong Game.png"
@@ -462,7 +473,7 @@
                         </div>
                     </article>
 
-                    <!-- Project 5 -->
+                    <!-- PROJECT 5: CPU SCHEDULING SIMULATION -->
                     <article class="project-card" data-category="programming">
                         <img
                             src="images/Simulation Code.png"
@@ -534,6 +545,7 @@
         <section id="contact" class="section reveal">
             <div class="container">
 
+                <!-- Section heading and contact introduction -->
                 <div class="section-heading">
                     <p class="eyebrow">GET IN TOUCH</p>
                     <h2>Contact Me</h2>
@@ -543,8 +555,10 @@
                     </p>
                 </div>
 
+                <!-- Two-column layout for contact information and contact form -->
                 <div class="contact-content">
 
+                     <!-- Personal contact information and social media links -->
                     <div class="contact-info">
                         <h3>Let's Connect</h3>
                         <p>
@@ -552,14 +566,18 @@
                             interested in technology and creativity.
                         </p>
 
+                        <!-- Email link and copy email functionality -->
                         <p class="contact-link">
+                            <!-- Open the visitor's default email application -->
                             <a href="mailto:106545@siswa.unimas.my"
                                aria-label="Send me an email">
                             <img src="images/email.png" alt="" class="contact-icon">
                             </a>
+                            <!-- Copy email address to the clipboard -->
                             <button type="button" id="copy-email" class="copy-email-btn">
                                 Copy email address
                             </button>
+                            <!-- Display copy success or error messages -->
                             <span id="copy-email-status" role="status" aria-live="polite"></span>
                         </p>
                         
@@ -573,9 +591,10 @@
                         </p>
                     </div>
 
-                    <!-- Front-end form: opens the visitor's email app -->
+                    <!-- Contact form that opens the visitor's email application -->
                     <form id="contact-form" class="contact-form">
 
+                        <!-- Visitor's name input -->
                         <label for="visitor-name">Your Name</label>
                         <input type="text"
                                id="visitor-name"
@@ -584,6 +603,7 @@
                                maxlength="100"
                                autocomplete="name">
 
+                        <!-- Visitor's email input -->
                         <label for="visitor-email">Your Email</label>
                         <input type="email"
                                id="visitor-email"
@@ -592,6 +612,7 @@
                                maxlength="254"
                                autocomplete="email">
 
+                        <!-- Visitor's message input -->
                         <label for="visitor-message">Message</label>
                         <textarea id="visitor-message"
                                   name="message"
@@ -599,10 +620,12 @@
                                   required
                                   maxlength="3000"></textarea>
 
+                        <!-- Submit button to prepare the email message -->
                         <button type="submit" class="btn btn-primary">
                             Send Message
                         </button>
 
+                        <!-- Display contact form status messages -->
                         <p id="form-status"
                            class="form-status"
                            role="status"
@@ -618,10 +641,12 @@
     <!-- ================= FOOTER ================= -->
     <footer class="footer">
         <div class="container">
+            <!-- Display copyright information and automatically updated year -->
             <p>
                 &copy; <span id="current-year"></span>
                 Teoh Yi Jie. All rights reserved.
             </p>
+            <!-- Link to return to the Home section -->
             <a href="#home">Back to Top ↑</a>
         </div>
     </footer>
