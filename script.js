@@ -330,13 +330,19 @@ document.querySelectorAll(".project-card").forEach((card) => {
     // Close project details
     hideButton.addEventListener("click", function () {
 
-        details.hidden = true;
+    // Hide project details
+    details.hidden = true;
 
-        // Show View Details button again
-        viewButton.style.display = "";
+    // Show View Details button again
+    viewButton.style.display = "";
 
-        viewButton.setAttribute("aria-expanded", "false");
+    viewButton.setAttribute("aria-expanded", "false");
 
+    // Keep the visitor at the current project card
+    card.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "auto"
+            : "smooth",
+        block: "start"
     });
-
 });
