@@ -914,3 +914,9 @@ textarea:focus-visible {
         transform: none;
     }
 }
+
+/* Ensure hidden buttons and project details stay hidden */
+.project-card button[hidden],
+.project-details[hidden] {
+    display: none !important;
+}
