@@ -305,14 +305,13 @@ copyEmailButton.addEventListener("click", async () => {
     }
 });
 
-
 /* ================= PROJECT DETAILS ================= */
 
 // Open project details
 const projectDetailButtons = document.querySelectorAll(".project-details-btn");
-
 projectDetailButtons.forEach((button) => {
     button.addEventListener("click", () => {
+
         const detailsId = button.getAttribute("aria-controls");
         const details = document.getElementById(detailsId);
 
@@ -321,19 +320,19 @@ projectDetailButtons.forEach((button) => {
         // Show project details
         details.hidden = false;
 
+        // Hide View Details button
+        button.hidden = true;
+
         // Update accessibility attribute
         button.setAttribute("aria-expanded", "true");
-
     });
 });
 
 // Close project details
-const closeDetailButtons = document.querySelectorAll(
-    ".project-details-close"
-);
-
+const closeDetailButtons = document.querySelectorAll(".project-details-close");
 closeDetailButtons.forEach((closeButton) => {
     closeButton.addEventListener("click", () => {
+
         const details = closeButton.closest(".project-details");
 
         if (!details) return;
@@ -341,13 +340,19 @@ closeDetailButtons.forEach((closeButton) => {
         // Hide project details
         details.hidden = true;
 
-        // Reset the View Details button
+        // Find the corresponding project card
         const card = closeButton.closest(".project-card");
 
         const toggleButton = card.querySelector(".project-details-btn");
 
         if (toggleButton) {
+
+            // Show View Details button again
+            toggleButton.hidden = false;
+
+            // Reset accessibility attribute
             toggleButton.setAttribute("aria-expanded", "false");
+
         }
     });
 });
