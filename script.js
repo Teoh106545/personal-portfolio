@@ -307,39 +307,33 @@ copyEmailButton.addEventListener("click", async () => {
 
 /* ================= PROJECT DETAILS ================= */
 
-const projectCards = document.querySelectorAll(".project-card");
-
-projectCards.forEach((card) => {
+document.querySelectorAll(".project-card").forEach((card) => {
 
     const viewButton = card.querySelector(".project-details-btn");
     const hideButton = card.querySelector(".project-details-close");
     const details = card.querySelector(".project-details");
 
-    // Check that all required elements exist
-    if (!viewButton || !hideButton || !details) {
-        console.error("Project details elements are missing.");
-        return;
-    }
+    if (!viewButton || !hideButton || !details) return;
 
-    // Initially show View Details and hide project information
-    viewButton.hidden = false;
-    details.hidden = true;
-
-    // Click View Details
-    viewButton.addEventListener("click", () => {
+    // Open project details
+    viewButton.addEventListener("click", function () {
 
         details.hidden = false;
-        viewButton.hidden = true;
 
-        viewButton.setAttribute("aria-expanded", "true");
+        // Hide View Details button
+        this.style.display = "none";
+
+        this.setAttribute("aria-expanded", "true");
 
     });
 
-    // Click Hide Details
-    hideButton.addEventListener("click", () => {
+    // Close project details
+    hideButton.addEventListener("click", function () {
 
         details.hidden = true;
-        viewButton.hidden = false;
+
+        // Show View Details button again
+        viewButton.style.display = "";
 
         viewButton.setAttribute("aria-expanded", "false");
 
