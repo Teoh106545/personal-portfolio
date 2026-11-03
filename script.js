@@ -342,6 +342,7 @@ projectDetailButtons.forEach((button) => {
 
             if (!toggleButton || !details) return;
 
+            // Show or hide project details
             toggleButton.addEventListener("click", () => {
             const isHidden = details.hidden;
 
