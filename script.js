@@ -307,64 +307,42 @@ copyEmailButton.addEventListener("click", async () => {
 
 /* ================= PROJECT DETAILS ================= */
 
-// Open project details
-const projectDetailButtons = document.querySelectorAll(
-    ".project-details-btn"
-);
+const projectCards = document.querySelectorAll(".project-card");
 
-projectDetailButtons.forEach((button) => {
+projectCards.forEach((card) => {
 
-    button.addEventListener("click", () => {
+    const viewButton = card.querySelector(".project-details-btn");
+    const hideButton = card.querySelector(".project-details-close");
+    const details = card.querySelector(".project-details");
 
-        const detailsId = button.getAttribute("aria-controls");
-        const details = document.getElementById(detailsId);
+    // Check that all required elements exist
+    if (!viewButton || !hideButton || !details) {
+        console.error("Project details elements are missing.");
+        return;
+    }
 
-        if (!details) return;
+    // Initially show View Details and hide project information
+    viewButton.hidden = false;
+    details.hidden = true;
 
-        // Show project details
+    // Click View Details
+    viewButton.addEventListener("click", () => {
+
         details.hidden = false;
+        viewButton.hidden = true;
 
-        // Hide View Details button
-        button.hidden = true;
-
-        // Update accessibility attribute
-        button.setAttribute("aria-expanded", "true");
+        viewButton.setAttribute("aria-expanded", "true");
 
     });
-});
 
-// Close project details
-const closeDetailButtons = document.querySelectorAll(
-    ".project-details-close"
-);
+    // Click Hide Details
+    hideButton.addEventListener("click", () => {
 
-closeDetailButtons.forEach((closeButton) => {
-
-    closeButton.addEventListener("click", () => {
-
-        const details = closeButton.closest(".project-details");
-
-        if (!details) return;
-
-        // Hide project details
         details.hidden = true;
+        viewButton.hidden = false;
 
-        // Find the corresponding project card
-        const card = closeButton.closest(".project-card");
-
-        const toggleButton = card.querySelector(
-            ".project-details-btn"
-        );
-
-        if (toggleButton) {
-
-            // Show View Details button again
-            toggleButton.hidden = false;
-
-            // Reset accessibility attribute
-            toggleButton.setAttribute("aria-expanded", "false");
-
-        }
+        viewButton.setAttribute("aria-expanded", "false");
 
     });
+
 });
