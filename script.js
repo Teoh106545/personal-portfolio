@@ -89,7 +89,7 @@ filterButtons.forEach((button) => {
 
         filterProjects();
     });
-});;
+});
 
 // ================= 4. SCROLL REVEAL ANIMATION =================
 
@@ -318,43 +318,48 @@ projectDetailButtons.forEach((button) => {
 
         // Check that the associated details section exists.
         if (!details) {
-            console.error(
-                `Project details section not found: ${detailsId}`
-            );
+            console.error(`Project details section not found: ${detailsId}`);
             return;
         }
 
         const isExpanded =
             button.getAttribute("aria-expanded") === "true";
 
-        // Toggle the details section.
+        // Toggle the details section
         details.hidden = isExpanded;
+        // Update accessibility attribute
         button.setAttribute("aria-expanded", String(!isExpanded));
 
-        // Update the button label.
+        // Update the button label
         button.textContent = isExpanded
-            ? "Project Details"
+            ? "View Details"
             : "Hide Details";
 
-        document.querySelectorAll(".project-card").forEach((card) => {
-            const toggleButton = card.querySelector(".project-details-btn");
-            const details = card.querySelector(".project-details");
+        // Handle Hide Details buttons
+        const closeDetailButtons = document.querySelectorAll(".project-details-close");
+            closeDetailButtons.forEach((closeButton) => {
+            closeButton.addEventListener("click", () => {
 
-            if (!toggleButton || !details) return;
+        const details = closeButton.closest(".project-details");
 
-            // Show or hide project details
-            toggleButton.addEventListener("click", () => {
-            const isHidden = details.hidden;
+        if (!details) return;
 
-            details.hidden = !isHidden;
-            toggleButton.textContent = isHidden ? "Hide Details" : "View Details";
-            toggleButton.setAttribute("aria-expanded", String(isHidden));
-        });
+        details.hidden = true;
 
-        // Close details using the bottom button
-        card.querySelector(".project-details-close")?.addEventListener("click", () => {
-            details.hidden = true;
+        // Find the corresponding View Details button
+        const card = closeButton.closest(".project-card");
+
+        const toggleButton = card.querySelector(
+            ".project-details-btn"
+        );
+
+        if (toggleButton) {
             toggleButton.textContent = "View Details";
-            toggleButton.setAttribute("aria-expanded", "false");
+
+            toggleButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+        }
     });
 });
